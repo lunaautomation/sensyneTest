@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add(`getListOfProducts`, () => { 
+    cy.request(`GET`,`v1/products`).then((response) =>{
+        return response
+    });
+ });
+
+ Cypress.Commands.add(`getProductById`, (productId) => { 
+    cy.request(`GET`,`v1/product/${productId}`).then((response) =>{
+        return response
+    })
+ })
