@@ -34,3 +34,24 @@ Cypress.Commands.add(`getListOfProducts`, () => {
         return response
     })
  })
+
+ Cypress.Commands.add(`putProductById`, (productId) => { 
+    cy.request(`PUT`,`v1/product/${productId}`).then((response) =>{
+        return response
+    })
+ })
+
+ Cypress.Commands.add(`deleteProductById`, (productId) => { 
+    cy.request(`DELETE`,`v1/product/${productId}`).then((response) =>{
+        return response
+    })
+ })
+
+ Cypress.Commands.add(`postProduct`, (name, price) => { 
+    cy.request(`POST`,`v1/product/`, {
+        name: name,
+        price: price,
+      }).then((response) =>{
+        return response
+    })
+ })
