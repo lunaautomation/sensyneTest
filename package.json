@@ -1,9 +1,9 @@
 {
   "name": "test-sensyne",
   "version": "1.0.0",
-  "description": "Jest Framework in Javascript for testing API's",
+  "description": "Cypress Framework in Javascript for testing API's",
   "scripts": {
-    "test": ""
+    "test": "cypress run"
   },
   "devDependencies": {
     "moment": "^2.24.0"
