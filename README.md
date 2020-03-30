@@ -9,7 +9,7 @@ Clone the repository and run the following on the command prompt in the cloned d
 Once NPM has installed all packages you can run the tests by typing:
 >`npm test`
 
-This will run the tests on the command line.
+This will run the tests on the command line and will continue to install Cypress if this is the first run.
 
 Alternatively if you would prefer to use the GUI, run the following command:
 >`npx cypress open`
