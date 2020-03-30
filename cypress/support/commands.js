@@ -32,11 +32,20 @@ Cypress.Commands.add(`getProductById`, (productId) => {
 })
 
 Cypress.Commands.add(`putProductById`, (productId) => {
-    return cy.request(`PUT`, `v1/product/${productId}`)
+    return cy.request({
+        url: `v1/product/${productId}`,
+        method: `PUT`,
+        failOnStatusCode: false
+    })
 })
 
 Cypress.Commands.add(`deleteProductById`, (productId) => {
-    return cy.request(`DELETE`, `v1/product/${productId}`)
+    return cy.request(
+        {
+            url: `v1/product/${productId}`,
+            method: `DELETE`,
+            failOnStatusCode: false
+        })
 })
 
 Cypress.Commands.add(`postProduct`, (name, price) => {
