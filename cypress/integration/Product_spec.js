@@ -12,6 +12,7 @@ context(`GET the product list`, () => {
     it(`returns a list of products with the expected properties`, () => {
         cy.getListOfProducts().then((response) => {
             response.body.forEach((item) => {
+                expect(response).property('body').to.exist;
                 expect(item).property('product_price').to.be.a('number')
                 expect(item).property('name').to.be.a('string')
                 expect(item).property('product_code').to.be.a('number')
@@ -28,6 +29,7 @@ context(`GET a single product by Id`, () => {
     })
     it(`returns the expected response body properties`, () => {
         cy.getProductById('1').then((response) => {
+            expect(response).property('body').to.exist
             expect(response.body).property('product_price').to.be.a('number')
             expect(response.body).property('name').to.be.a('string')
             expect(response.body).property('product_code').to.be.a('number')
@@ -43,7 +45,7 @@ context(`POST a new product`, () => {
     })
     it(`returns the expected response body properties`, () => {
         cy.postProduct(`TestPost Item${moment().unix()}`, 12.99).then((response) => {
-            expect(response).property('body').to.exist();
+            expect(response).property('body').to.exist;
             expect(response.body).property('product_price').to.be.a('number')
             expect(response.body).property('name').to.be.a('string')
             expect(response.body).property('product_code').to.be.a('number')
@@ -85,7 +87,7 @@ context(`DELETE an product`, () => {
     it(`returns the expected response body properties`, () => {
         cy.postProduct(`TestDelete Item${moment().unix()}`, 12.99).then((response) => {
             cy.deleteProductById(response.body.product_code.toString()).then((response) => {
-                expect(response).property('body').to.exist();
+                expect(response).property('body').to.exist;
                 expect(response.body).property('product_price').to.be.a('number')
                 expect(response.body).property('name').to.be.a('string')
                 expect(response.body).property('product_code').to.be.a('number')
