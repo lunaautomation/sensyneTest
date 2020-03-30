@@ -40,8 +40,13 @@ Cypress.Commands.add(`deleteProductById`, (productId) => {
 })
 
 Cypress.Commands.add(`postProduct`, (name, price) => {
-    return cy.request(`POST`, `v1/product`, {
-        name: name,
-        price: price,
+    return cy.request({
+        url: `v1/product`,
+        method: 'POST',
+        body: {
+            name: name,
+            price: price,
+        },
+        failOnStatusCode: false
     })
 })
