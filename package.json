@@ -5,7 +5,9 @@
   "scripts": {
     "test": ""
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "moment": "^2.24.0"
+  },
   "dependencies": {
     "cypress": "^4.2.0"
   }
